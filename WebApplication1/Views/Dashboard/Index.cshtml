@@ -1,0 +1,147 @@
+@model WebApplication1.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h2>
+        <p class="text-muted">System Overview and Statistics</p>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4 col-lg-2 mb-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+                <i class="fas fa-warehouse fa-3x mb-2"></i>
+                <h3 class="card-title">@Model.TotalWarehouses</h3>
+                <p class="card-text">Warehouses</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-2 mb-3">
+        <div class="card text-white bg-success">
+            <div class="card-body text-center">
+                <i class="fas fa-car fa-3x mb-2"></i>
+                <h3 class="card-title">@Model.TotalVehicles</h3>
+                <p class="card-text">Total Vehicles</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-2 mb-3">
+        <div class="card text-white bg-info">
+            <div class="card-body text-center">
+                <i class="fas fa-users fa-3x mb-2"></i>
+                <h3 class="card-title">@Model.TotalDrivers</h3>
+                <p class="card-text">Active Drivers</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-2 mb-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body text-center">
+                <i class="fas fa-briefcase fa-3x mb-2"></i>
+                <h3 class="card-title">@Model.TotalVacancies</h3>
+                <p class="card-text">Vacancies</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-2 mb-3">
+        <div class="card text-white bg-danger">
+            <div class="card-body text-center">
+                <i class="fas fa-file-alt fa-3x mb-2"></i>
+                <h3 class="card-title">@Model.PendingApplications</h3>
+                <p class="card-text">Pending Apps</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-2 mb-3">
+        <div class="card text-white bg-secondary">
+            <div class="card-body text-center">
+                <i class="fas fa-car-side fa-3x mb-2"></i>
+                <h3 class="card-title">@Model.AvailableVehicles</h3>
+                <p class="card-text">Available Vehicles</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-history"></i> Recent Activity Log</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.RecentActivities != null && Model.RecentActivities.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var log in Model.RecentActivities)
+                                {
+                                    <tr>
+                                        <td>@log.Timestamp.ToString("MM/dd HH:mm")</td>
+                                        <td>@log.User.FullName</td>
+                                        <td><span class="badge bg-info">@log.ActionType</span></td>
+                                        <td>@log.Description</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted">No recent activities</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-link"></i> Quick Links</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="@Url.Action("Index", "Warehouses")" class="btn btn-outline-primary">
+                        <i class="fas fa-warehouse"></i> Manage Warehouses
+                    </a>
+                    <a href="@Url.Action("Index", "Vehicles")" class="btn btn-outline-success">
+                        <i class="fas fa-car"></i> Manage Vehicles
+                    </a>
+                    <a href="@Url.Action("Index", "Drivers")" class="btn btn-outline-info">
+                        <i class="fas fa-users"></i> View Drivers
+                    </a>
+                    <a href="@Url.Action("AssignVehicle", "Drivers")" class="btn btn-outline-warning">
+                        <i class="fas fa-truck-loading"></i> Assign Vehicles
+                    </a>
+                    <a href="@Url.Action("Index", "Vacancies")" class="btn btn-outline-danger">
+                        <i class="fas fa-briefcase"></i> Manage Vacancies
+                    </a>
+                    <a href="@Url.Action("Index", "JobApplications")" class="btn btn-outline-secondary">
+                        <i class="fas fa-file-alt"></i> Review Applications
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

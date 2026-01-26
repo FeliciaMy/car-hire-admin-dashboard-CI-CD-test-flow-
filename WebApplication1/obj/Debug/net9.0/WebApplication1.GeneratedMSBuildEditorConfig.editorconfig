@@ -1,0 +1,133 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebApplication1
+build_property.RootNamespace = WebApplication1
+build_property.ProjectDir = /Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/feliciamayeyane/TakealotDriverManagement/WebApplication1
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Drivers/AssignVehicle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRHJpdmVycy9Bc3NpZ25WZWhpY2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Drivers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRHJpdmVycy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/JobApplications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSm9iQXBwbGljYXRpb25zL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vacancies/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmFjYW5jaWVzL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vacancies/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmFjYW5jaWVzL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vacancies/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmFjYW5jaWVzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vacancies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmFjYW5jaWVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vehicles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVoaWNsZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vehicles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVoaWNsZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vehicles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVoaWNsZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Vehicles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVoaWNsZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Warehouses/ Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlcy8gRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Warehouses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlcy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Warehouses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlcy9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Warehouses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlcy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Warehouses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlcy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-4ak7nacacg

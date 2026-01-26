@@ -1,0 +1,154 @@
+@model IEnumerable<WebApplication1.ViewModels.JobApplicationViewModel>
+
+@{
+    ViewData["Title"] = "Job Applications";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-file-alt"></i> Job Applications</h2>
+        <p class="text-muted">Review and Process Driver Applications</p>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#" data-filter="All">All Applications</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-filter="Pending">Pending</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-filter="Accepted">Accepted</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-filter="Rejected">Rejected</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="applicationsTable">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Driver Name</th>
+                                    <th>Vacancy</th>
+                                    <th>License Number</th>
+                                    <th>Application Date</th>
+                                    <th>Resume</th>
+                                    <th>Status</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var app in Model)
+                                {
+                                    <tr data-status="@app.Status">
+                                        <td>@app.DriverName</td>
+                                        <td>@app.VacancyName</td>
+                                        <td>@app.LicenseNumber</td>
+                                        <td>@app.ApplicationDate.ToString("dd MMM yyyy")</td>
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(app.ResumePath))
+                                            {
+                                                <a href="@app.ResumePath" target="_blank" class="btn btn-sm btn-info">
+                                                    <i class="fas fa-download"></i> View
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">No resume</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (app.Status == "Pending")
+                                            {
+                                                <span class="badge bg-warning">Pending</span>
+                                            }
+                                            else if (app.Status == "Accepted")
+                                            {
+                                                <span class="badge bg-success">Accepted</span>
+                                            }
+                                            else if (app.Status == "Rejected")
+                                            {
+                                                <span class="badge bg-danger">Rejected</span>
+                                            }
+                                        </td>
+                                        <td class="text-end">
+                                            @if (app.Status == "Pending")
+                                            {
+                                                <form asp-action="ChangeStatus" method="post" class="d-inline">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@app.ApplicationId" />
+                                                    <input type="hidden" name="status" value="Accepted" />
+                                                    <button type="submit" class="btn btn-sm btn-success" 
+                                                            onclick="return confirm('Accept this application?')">
+                                                        <i class="fas fa-check"></i> Accept
+                                                    </button>
+                                                </form>
+                                                <form asp-action="ChangeStatus" method="post" class="d-inline">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@app.ApplicationId" />
+                                                    <input type="hidden" name="status" value="Rejected" />
+                                                    <button type="submit" class="btn btn-sm btn-danger" 
+                                                            onclick="return confirm('Reject this application?')">
+                                                        <i class="fas fa-times"></i> Reject
+                                                    </button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">Processed</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> No job applications found.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('[data-filter]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                var filter = this.getAttribute('data-filter');
+                var rows = document.querySelectorAll('#applicationsTable tbody tr');
+                
+                rows.forEach(function(row) {
+                    var status = row.getAttribute('data-status');
+                    if (filter === 'All' || status === filter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,126 @@
+@model IEnumerable<WebApplication1.Models.Driver>
+
+@{
+    ViewData["Title"] = "Driver Management";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-users"></i> Driver Management</h2>
+        <p class="text-muted">View Drivers and Manage Vehicle Assignments</p>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <a asp-action="AssignVehicle" class="btn btn-primary">
+            <i class="fas fa-truck-loading"></i> Assign Vehicle to Driver
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Driver Name</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>License Number</th>
+                                    <th>Assigned Vehicle</th>
+                                    <th>Warehouse</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var driver in Model)
+                                {
+                                    <tr>
+                                        <td>@driver.User.FullName</td>
+                                        <td>@driver.User.Email</td>
+                                        <td>@driver.User.ContactNumber</td>
+                                        <td>
+                                            <span class="badge bg-secondary">@driver.LicenseNumber</span>
+                                        </td>
+                                        <td>
+                                            @if (driver.Vehicle != null)
+                                            {
+                                                <span class="text-success">
+                                                    <i class="fas fa-car"></i> 
+                                                    @driver.Vehicle.Make @driver.Vehicle.Model 
+                                                    (@driver.Vehicle.LicensePlate)
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">
+                                                    <i class="fas fa-times-circle"></i> No vehicle assigned
+                                                </span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (driver.Vehicle?.Warehouse != null)
+                                            {
+                                                <span class="badge bg-info">
+                                                    @driver.Vehicle.Warehouse.Name
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">-</span>
+                                            }
+                                        </td>
+                                        <td class="text-end">
+                                            @if (driver.AssignedVehicleId != null)
+                                            {
+                                                <form asp-action="UnassignVehicle" asp-route-id="@driver.Id" 
+                                                      method="post" class="d-inline">
+                                                    @Html.AntiForgeryToken()
+                                                    <button type="submit" class="btn btn-sm btn-warning" 
+                                                            onclick="return confirm('Unassign vehicle from this driver?')"
+                                                            title="Unassign Vehicle">
+                                                        <i class="fas fa-unlink"></i> Unassign
+                                                    </button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="AssignVehicle" class="btn btn-sm btn-success" 
+                                                   title="Assign Vehicle">
+                                                    <i class="fas fa-plus"></i> Assign
+                                                </a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> No drivers found in the system.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@* 
+Purpose: Drivers/Index.cshtml displays all drivers with their vehicle assignments.
+- Shows driver personal information
+- Displays assigned vehicle details (if any)
+- Shows warehouse location for assigned vehicles
+- Unassign button for drivers with vehicles
+- Assign button for drivers without vehicles
+- Color-coded status indicators
+*@

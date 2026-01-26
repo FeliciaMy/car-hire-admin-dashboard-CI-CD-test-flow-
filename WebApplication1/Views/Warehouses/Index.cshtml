@@ -1,0 +1,106 @@
+@model IEnumerable<WebApplication1.Models.Warehouse>
+
+@{
+    ViewData["Title"] = "Warehouse Management";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-warehouse"></i> Warehouse Management</h2>
+        <p class="text-muted">Manage Warehouse Locations</p>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <input type="text" id="searchBox" class="form-control w-50" placeholder="Search by warehouse name..." />
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add Warehouse
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="warehouseTable">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Vehicles</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var warehouse in Model)
+                                {
+                                    <tr>
+                                        <td>@warehouse.Name</td>
+                                        <td>@warehouse.Address</td>
+                                        <td>
+                                            <span class="badge bg-info">@warehouse.Vehicles.Count</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <a asp-action="Edit" asp-route-id="@warehouse.Id" 
+                                               class="btn btn-sm btn-warning" title="Edit">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@warehouse.Id" 
+                                               class="btn btn-sm btn-danger" title="Delete">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> No warehouses found. Click "Add Warehouse" to create one.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Simple search functionality
+        document.getElementById('searchBox').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var tableRows = document.querySelectorAll('#warehouseTable tbody tr');
+            
+            tableRows.forEach(function(row) {
+                var name = row.cells[0].textContent.toLowerCase();
+                var address = row.cells[1].textContent.toLowerCase();
+                
+                if (name.includes(searchValue) || address.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+}
+
+@* 
+Purpose: Warehouses/Index.cshtml displays all warehouses with CRUD options.
+- Lists all warehouses with name, address, and vehicle count
+- Search functionality to filter warehouses by name/address
+- Edit/Delete buttons for each warehouse
+- Link to create new warehouse
+- Displays vehicle count using badge
+*@
