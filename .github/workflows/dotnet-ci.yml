@@ -3,58 +3,67 @@ name: ASP.NET CI Pipeline
 on:
   push:
     branches:
-      - main
-      - 'feature/**'
+      - "main"
+      - "feature/**"
   pull_request:
     branches:
-      - main
+      - "main"
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     steps:
-      # 1️⃣ Checkout code
-      - name: Checkout repository
+      # Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup .NET SDK
+      # Setup .NET
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: '8.0.x'
 
-      # 3️⃣ Restore dependencies
+      # Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore TakealotDriverManagement/WebApplication1.csproj
+        run: dotnet restore
 
-      # 4️⃣ Ensure code formatting is correct
-      - name: Check code formatting
+      # Format check
+      - name: Verify code formatting
         run: |
           dotnet tool restore
           dotnet format --verify-no-changes
-        continue-on-error: false
 
-      # 5️⃣ Build project
-      - name: Build project
-        run: dotnet build TakealotDriverManagement/WebApplication1.csproj --no-restore
+      # Build
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
 
-      # 6️⃣ Run tests with results output
+      # Run tests and generate results
       - name: Run tests
         run: |
           mkdir -p TestResults
-          dotnet test TakealotDriverManagement/WebApplication1.Tests/WebApplication1.Tests.csproj \
-            --no-build \
+          dotnet test --no-build --verbosity normal \
             --logger "trx;LogFileName=TestResults.trx" \
             --results-directory TestResults
         continue-on-error: true
 
-      # 7️⃣ Upload test results as artifact
+      # Upload test results (artifact) — use v4
       - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: TakealotDriverManagement/TestResults
+          path: TestResults/
+
+      #Optional: Publish build artifacts to attach for later use
+      - name: Publish build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            **/bin/Release/**
+            **/obj/Release/**
+
 
      
+
 
