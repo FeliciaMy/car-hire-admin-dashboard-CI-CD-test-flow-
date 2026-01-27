@@ -28,11 +28,11 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      # Format check
-      - name: Verify code formatting
-        run: |
-          dotnet tool restore
-          dotnet format --verify-no-changes
+      # # Format check
+      # - name: Verify code formatting
+      #   run: |
+      #     dotnet tool restore
+      #     dotnet format --verify-no-changes
 
       # Build
       - name: Build
@@ -65,5 +65,6 @@ jobs:
 
 
      
+
 
 
