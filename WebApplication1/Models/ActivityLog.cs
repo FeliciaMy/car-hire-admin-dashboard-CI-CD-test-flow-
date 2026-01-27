@@ -20,7 +20,7 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "Action type is required")]
         [StringLength(100)]
         [Display(Name = "Action Type")]
-        public string ActionType { get; set; }
+        public required string ActionType { get; set; }
 
         [StringLength(500)]
         public string? Description { get; set; }
