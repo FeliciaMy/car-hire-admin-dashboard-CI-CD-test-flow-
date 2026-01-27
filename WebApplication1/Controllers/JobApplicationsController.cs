@@ -113,7 +113,7 @@ namespace WebApplication1.Controllers
             _context.Notifications.Add(notification);
 
             // Log the activity
-            await LogActivity("Application Processed", 
+            await LogActivity("Application Processed",
                 $"Application for {application.User.FullName} - Status changed to {status}");
 
             await _context.SaveChangesAsync();

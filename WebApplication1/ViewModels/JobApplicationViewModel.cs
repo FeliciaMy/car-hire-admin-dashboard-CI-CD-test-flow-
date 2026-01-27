@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 namespace WebApplication1.ViewModels
 {
     /// <summary>
-  
-   
+
+
     /// </summary>
     public class JobApplicationViewModel
     {

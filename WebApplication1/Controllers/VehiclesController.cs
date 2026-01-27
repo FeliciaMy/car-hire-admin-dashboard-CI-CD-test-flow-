@@ -95,7 +95,7 @@ namespace WebApplication1.Controllers
                 _context.Add(vehicle);
                 await _context.SaveChangesAsync();
 
-                await LogActivity("Vehicle Added", 
+                await LogActivity("Vehicle Added",
                     $"New vehicle {vehicle.Make} {vehicle.Model} ({vehicle.LicensePlate}) added");
 
                 TempData["Success"] = "Vehicle created successfully!";
@@ -151,7 +151,7 @@ namespace WebApplication1.Controllers
                     _context.Update(vehicle);
                     await _context.SaveChangesAsync();
 
-                    await LogActivity("Vehicle Updated", 
+                    await LogActivity("Vehicle Updated",
                         $"Vehicle {vehicle.Make} {vehicle.Model} ({vehicle.LicensePlate}) updated");
 
                     TempData["Success"] = "Vehicle updated successfully!";
@@ -205,7 +205,7 @@ namespace WebApplication1.Controllers
                 _context.Vehicles.Remove(vehicle);
                 await _context.SaveChangesAsync();
 
-                await LogActivity("Vehicle Deleted", 
+                await LogActivity("Vehicle Deleted",
                     $"Vehicle {vehicle.Make} {vehicle.Model} ({vehicle.LicensePlate}) deleted");
 
                 TempData["Success"] = "Vehicle deleted successfully!";

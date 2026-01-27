@@ -81,7 +81,7 @@ namespace WebApplication1.Controllers
                 _context.Add(warehouse);
                 await _context.SaveChangesAsync();
 
-                await LogActivity("Warehouse Added", 
+                await LogActivity("Warehouse Added",
                     $"New warehouse '{warehouse.Name}' created at {warehouse.Address}");
 
                 TempData["Success"] = "Warehouse created successfully!";
@@ -125,7 +125,7 @@ namespace WebApplication1.Controllers
                     _context.Update(warehouse);
                     await _context.SaveChangesAsync();
 
-                    await LogActivity("Warehouse Updated", 
+                    await LogActivity("Warehouse Updated",
                         $"Warehouse '{warehouse.Name}' information updated");
 
                     TempData["Success"] = "Warehouse updated successfully!";
@@ -176,7 +176,7 @@ namespace WebApplication1.Controllers
                 _context.Warehouses.Remove(warehouse);
                 await _context.SaveChangesAsync();
 
-                await LogActivity("Warehouse Deleted", 
+                await LogActivity("Warehouse Deleted",
                     $"Warehouse '{warehouse.Name}' has been deleted");
 
                 TempData["Success"] = "Warehouse deleted successfully!";

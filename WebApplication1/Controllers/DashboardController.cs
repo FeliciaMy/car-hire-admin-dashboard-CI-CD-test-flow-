@@ -7,7 +7,7 @@ namespace WebApplication1.Controllers
 {
     /// <summary>
     /// DashboardController displays the admin dashboard with system overview.
-    
+
     /// </summary>
     public class DashboardController : Controller
     {

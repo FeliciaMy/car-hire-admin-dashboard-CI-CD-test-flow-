@@ -164,7 +164,7 @@ namespace WebApplication1.Controllers
                 _context.Notifications.Add(notification);
 
                 // Log the activity
-                await LogActivity("Vehicle Assigned", 
+                await LogActivity("Vehicle Assigned",
                     $"Vehicle {vehicle.Make} {vehicle.Model} ({vehicle.LicensePlate}) assigned to {driver.User.FullName}");
 
                 await _context.SaveChangesAsync();
@@ -229,7 +229,7 @@ namespace WebApplication1.Controllers
             driver.AssignedVehicleId = null;
             _context.Update(driver);
 
-            await LogActivity("Vehicle Unassigned", 
+            await LogActivity("Vehicle Unassigned",
                 $"Vehicle {vehicleInfo} unassigned from {driver.User.FullName}");
 
             await _context.SaveChangesAsync();

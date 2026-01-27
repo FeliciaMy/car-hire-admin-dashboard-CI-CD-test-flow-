@@ -77,7 +77,7 @@ namespace WebApplication1.Controllers
                 await _context.SaveChangesAsync();
 
                 var warehouse = await _context.Warehouses.FindAsync(vacancy.WarehouseId);
-                await LogActivity("Vacancy Created", 
+                await LogActivity("Vacancy Created",
                     $"New vacancy '{vacancy.Name}' created at {warehouse?.Name}");
 
                 TempData["Success"] = "Vacancy created successfully!";
@@ -121,7 +121,7 @@ namespace WebApplication1.Controllers
                     _context.Update(vacancy);
                     await _context.SaveChangesAsync();
 
-                    await LogActivity("Vacancy Updated", 
+                    await LogActivity("Vacancy Updated",
                         $"Vacancy '{vacancy.Name}' has been updated");
 
                     TempData["Success"] = "Vacancy updated successfully!";
@@ -172,7 +172,7 @@ namespace WebApplication1.Controllers
                 _context.Vacancies.Remove(vacancy);
                 await _context.SaveChangesAsync();
 
-                await LogActivity("Vacancy Deleted", 
+                await LogActivity("Vacancy Deleted",
                     $"Vacancy '{vacancy.Name}' has been deleted");
 
                 TempData["Success"] = "Vacancy deleted successfully!";

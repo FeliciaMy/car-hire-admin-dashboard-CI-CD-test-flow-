@@ -5,7 +5,7 @@ namespace WebApplication1.Models
 {
     /// <summary>
     /// ActivityLog model for tracking admin actions in the system.
-    
+
     /// </summary>
     public class ActivityLog
     {
