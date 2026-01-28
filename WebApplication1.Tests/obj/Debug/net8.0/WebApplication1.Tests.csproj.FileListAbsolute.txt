@@ -1,0 +1,8 @@
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/bin/Debug/net8.0/.msCoverageSourceRootsMapping_WebApplication1.Tests
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_WebApplication1.Tests
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/obj/Debug/net8.0/WebApplication1.Tests.csproj.AssemblyReference.cache
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/obj/Debug/net8.0/WebApplication1.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/obj/Debug/net8.0/WebApplication1.Tests.AssemblyInfoInputs.cache
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/obj/Debug/net8.0/WebApplication1.Tests.AssemblyInfo.cs
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/obj/Debug/net8.0/WebApplication1.Tests.csproj.CoreCompileInputs.cache
+/Users/feliciamayeyane/TakealotDriverManagement/WebApplication1.Tests/obj/Debug/net8.0/WebApplication1.Tests.sourcelink.json
